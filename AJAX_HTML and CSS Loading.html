@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style id="styles"></style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>AJAX CSS:</h1>
+      <button class="btn btn-lg btn-primary" id="btn">HTML</button>
+      <button class="btn btn-lg btn-warning" id="btncss">CSS</button>
+      <div id="demo"></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("#demo").html(" ");
+          // var xhttp = new XMLHttpRequest();
+
+          // xhttp.onreadystatechange = function () {
+          //   if (xhttp.readyState == 4 && xhttp.status == 200) {
+          //     $("#demo").append(xhttp.response);
+          //   }
+          // };
+          // xhttp.open("GET", "demo07.html", true);
+          // xhttp.send();
+
+          $.ajax({
+            type: "GET",
+            url: "HTMLloading.html",
+            success: function (html) {
+              $("#demo").append(html);
+            },
+          });
+        });
+
+        $("#btncss").click(function () {
+          //   $("#demo").html(" ");
+
+          // var xhr = new XMLHttpRequest();
+          // xhr.open("GET", "demo07.css");
+          // xhr.onreadystatechange = function () {
+          //   if (this.readyState == 4 && this.status == 200) {
+          //     xhr.onreadystatechange = null;
+
+          //     var style = document.createElement("style");
+          //     style.type = "text/css";
+          //     style.innerHTML = this.responseText;
+          //     document.getElementsByTagName("head")[0].appendChild(style);
+          //     var cssSheet = style.sheet;
+          //     var rule = cssSheet.cssRules[0];
+          //   }
+          // };
+          // xhr.send();
+
+          // $.ajax({
+          //   url: "demo07.css",
+          //   dataType: "text",
+          //   success: function (response) {
+          //     var style = $("<style>").text(response);
+          //     $("head").append(style);
+
+          //     console.log("Stylesheet loaded");
+          //   },
+          // });
+
+          $.ajax({
+            url: "CSSLoading.css",
+            dataType: "text",
+            success: function (data) {
+              $('<style type="text/css">\n' + data + "</style>").appendTo(
+                "head"
+              );
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

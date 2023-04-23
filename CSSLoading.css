@@ -1,0 +1,17 @@
+h2{
+    color: darkcyan;
+    background-color: lightcoral;
+}
+h3{
+    color: red;
+    background-color: yellow;
+}
+#para{
+    color: blueviolet;
+    background-color: white;
+}
+#colordiv{
+    background-color: blue;
+    width: 100%;
+    height: 300px;
+}
