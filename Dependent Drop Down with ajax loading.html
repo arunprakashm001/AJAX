@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <br> <br>
+    <div class="container" style="width: 600px">
+        <h2 align="center">Dynamic Dependent Dropdown</h2>
+      <br /><br />    
+    <select name="" id="country" onchange=" $.fn.selectchange();" class="form-control input-lg">
+        <option value="">Select country</option>
+    </select> <br>
+    <select name="" id="states" onchange="$.fn.changestate()" class="form-control input-lg" >
+        <option value="">Select State</option>
+    </select> <br>
+    <select name="" id="district" class="form-control input-lg">
+        <option value="">Select District</option>
+    </select>
+
+    </div>
+    <script>
+
+        $(document).ready(function(){
+            $.ajax({
+                contentType:'application/json',
+                url:'./DependentDropDown.json',
+                type:'GET',
+                dataType:'json',
+                success:function(countrylist){
+                   // console.log(countrylist);
+                    clist=Object.keys(countrylist);
+                    // console.log(clist);
+                    str="";
+
+                    for(i=0;i<clist.length;i++){
+                        str+= "<option value='"+clist[i]+"'>"+clist[i]+"</option>";
+                    }
+
+                    $("#country").append(str);
+
+                }
+            });
+
+            $.fn.selectchange=function(){
+
+                $("#states").html('<option value="">Select state</option>');
+                $("#district").html('<option value="">Select District</option>');
+
+
+                selectedoption=$("#country option:selected").val();
+                // console.log(selectedoption);
+                $.ajax({
+                    contentType:'application/json',
+                    url:'./DependentDropDown.json',
+                    type:'GET',
+                    dataType:'json',
+                    success:function(countrylist){
+                        // console.log(countrylist);
+                        clist=Object.keys(countrylist);
+                        // console.log(clist);
+                        for(i=0;i<clist.length;i++){
+                            if(clist[i]==selectedoption){
+                                slist=Object.keys(countrylist[clist[i]]);
+                                // console.log(slist);
+                                str="";
+                                for(j=0;j<slist.length;j++){
+                                    // console.log(slist[j]);
+                                str+= "<option value='"+slist[j]+"'>"+slist[j]+"</option>";
+                                }
+                                $("#states").append(str);
+                            }
+                        }
+                    }
+                })
+            }
+        })
+
+        $.fn.changestate=function(){  
+            $("#district").html('<option value="">Select District</option>');
+            selectedoption=$("#states option:selected").val();
+            // console.log(selectedoption);
+            $.ajax({
+                    contentType:'application/json',
+                    url:'./DependentDropDown.json',
+                    type:'GET',
+                    dataType:'json',
+                    success:function(countrylist){
+                      
+                        clist=Object.keys(countrylist);
+                        dist='';
+                
+                        for(i=0;i<clist.length;i++){
+                         
+                                slist=Object.keys(countrylist[clist[i]]);
+                            
+                                for(j=0;j<slist.length;j++){
+                                    if(slist[j]==selectedoption){
+                                       dlist=Object.values(countrylist[clist[i]][slist[j]]);
+                                       console.log(dlist);
+
+                                    for(k=0; k<dlist.length; k++){
+                                    dist+= "<option value='"+dlist[k]+"'>"+dlist[k]+"</option>";
+                                    }
+                                    $('#district').append(dist);
+
+                                    }
+                                
+                            }
+                           
+                        }
+                    }
+            })
+        }
+       
+    </script>
+</body>
+</html>
