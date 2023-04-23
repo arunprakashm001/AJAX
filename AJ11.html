@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"
+    />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>AJAX DATATABLE</h1>
+      <table id="datatable" class="table order-column hover table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>EMAIL</th>
+            <th>ADDRESS</th>
+            <th>CONTACT</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#datatable").DataTable({
+          "ajax": "demo11.txt",
+          "columns": [
+            { "data": "id" },
+            { "data": "Name" },
+            {"data":"Age"},
+            {"data":"Email"},
+            {"data":"Address"},
+            {"data":"Contact"}
+           
+        ]
+        });
+
+        // $.ajax({
+        //   url: "demo09.json",
+        //   dataType: "json",
+        //   type: 'GET',
+        //   success: function(data) {
+        //     var trHTML = '';
+        //     $.each(data, function(i,item) {
+        //       trHTML += '<tr><td>' + item.id + '</td><td>' + item.Name + '</td><td>' + item.Age + '</td><td>'+ item.Email + '</td><td>'+ item.Address + '</td><td>'+item.Contact +'</td></tr>'
+        //     });
+        //     $('#datatable').append(trHTML);
+        //   }
+        // });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ21</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/cupertino/jquery-ui.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+    <br><br>
+    <div class="container" style="width: 800px">
+        <h2 align="center">AJAX-ACCORDION</h2>
+        <div id="jQuery_accordion">
+            <h3>header 1</h3>
+            <div id="accord1"></div>
+            <h3>header 2</h3>
+            <div id="accord2"></div>
+            <h3>header 3</h3>
+            <div id="accord3"></div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $("#jQuery_accordion").accordion({
+                    collapsible: true,
+                    active: false,
+                    // clearStyle: true,
+                    // autoHeight: false,
+                    // header: '.accordion-head',         
+                    heightStyle: 'content',
+                    // icons: false,
+                });
+            });
+
+
+            $.ajax({
+                url: "AJ21.json",
+                success: function (ajaxresult) {
+                    console.log(ajaxresult);
+                    val01 = Object.values(ajaxresult);
+                    console.log(val01);
+                    for (i = 0; i < val01.length; i++) {
+                        val02 = Object.values(val01[i]);
+                        console.log(val02);
+                    }
+                    $("#accord1").append(val02);
+                }
+            });
+
+
+            // $.ajax({
+            //     type:"GET",
+            //     url: "./ii01.html",
+            //     success: function (image) {
+
+            //         $("#accord2").append(image);
+            //     }
+            // });
+            var xhr = new XMLHttpRequest();
+
+            xhr.responseType = "blob";
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var blob = xhr.response;
+                    var objectURL = URL.createObjectURL(blob);
+                    var img = document.createElement("img");
+                    img.src = objectURL;
+                    var div = document.getElementById("accord2");
+                    div.append(img);
+                }
+            };
+            xhr.open("GET", "https://loremflickr.com/640/360", true);
+            xhr.send();
+
+            $.ajax({
+                type:"GET",
+                url: "./ii05.html",
+                success: function (htmlres) {
+
+                    $("#accord3").append(htmlres);
+                }
+            });
+
+
+
+        });
+    </script>
+</body>
+
+</html>

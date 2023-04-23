@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>AJAX Form load</h2>
+    <form action="">
+        <div class="row">
+            <div class="col-md-6">
+            <label for="">Employee Name:</label>
+            <input type="text" id="name" class="form-control" name="name" placeholder="Enter your name">
+            <div></div>
+            </div>
+            <div class="col-md-6">
+                <label for="">Date of Birth:</label>
+                <input type="text" name="dateofbirth" id="date" class="form-control" placeholder="dd-mm-yyyy">
+                <div id="dob01"></div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Employee ID:</label>
+                <input type="number" id="empid" class="form-control" name="id" placeholder="Enter your ID">
+                <div></div>  
+            </div>
+            <div class="col-md-6">
+                <label for="">Employee Email:</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter your email" id="email">
+                <div></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Employee Address:</label>
+                <textarea name="address" id="address" cols="30" rows="3" class="form-control" placeholder="Enter Virudhunagar Town's name for autocomplete"></textarea>
+                <div id="autoadd"></div>
+                <!-- <div id="autoadd"></div> -->
+            </div> <br>
+            
+            <div class="col-md-6">
+                <label for="">Employee Mobile NO:</label>
+                <input type="number" id="phone" class="form-control" name="phone" placeholder="Enter your Mobile number">
+                <div></div>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Employee Gender:</label>
+                <br>
+                <input type="radio" name="gender" class="r1" value="Male" id="radio01">
+                <label for="radio01">Male</label>
+                <input type="radio" name="gender" class="r1" value="Female" id="radio02">
+                <label for="radio02">Female</label>
+                <input type="radio" name="gender" class="r1" value="Others" id="radio03">
+                <label for="radio03">Others</label>
+                <div></div> 
+            </div>
+            
+            <div class="col-md-6">
+                <label for="drop">Select your shifts:</label> <br>
+                <select class="form-control" name="shifts" id="drop" title="click and select">
+                    <option value="">--select--</option>
+                    <option value="Firstshift" name="sft">Firstshift</option>
+                    <option value="Secondshift" name="sft">Secondshift</option>
+                    <option value="Thirdshift" name="sft">Thirdshift</option>
+                    <option value="Fourthshift"name="sft">Fourthshift</option>
+                </select>
+                <div></div>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+            <div class="col-md-12">
+                <label for="">Select Skills:</label><br>
+                <input type="checkbox" class="c1" name="skills" value="HTML" id="cb01">
+                <label for="cb01">HTML</label>
+                <input type="checkbox" class="c1" name="skills" value="JAVA" id="cb02">
+                <label for="cb02">JAVA</label>
+                <input type="checkbox" class="c1" name="skills" value="Phython" id="cb03">
+                <label for="cb03">Phython</label>
+                <input type="checkbox" class="c1" name="skills" value="Javascript" id="cb04">
+                <label for="cb04">Javascript</label>
+                <input type="checkbox" class="c1" name="skills" value="Php" id="cb05">
+                <label for="cb05">Php</label>
+                <input type="checkbox" class="c1" name="skills" value="SQL" id="cb06">
+                <label for="cb06">SQL</label>
+                <div></div>
+            </div>
+            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-block" id="adfsubmit" type="button" onclick="$.fn.jsonload()">LOAD</button>
+            </div>
+        </div>
+
+ 
+    </form>
+</div>
+<script>
+    $(document).ready(function(){
+
+        $.fn.jsonload = function(){
+            $.ajax({
+                    type:"GET",
+                    url:"./AJ18.json",
+                    success:function(response){
+                        console.log(response)
+                        
+                        $('#name').val(response.name);
+                        $('#date').val(response.dob);
+                        $('#empid').val(response.id)
+                        $('#email').val(response.email)
+                        $('#address').val(response.address);
+                        $('#phone').val(response.phone);
+
+                       var radios = $("[name='gender']");
+                       for(var l=0; l<radios.length; l++){
+                        var radiocheck = radios.get([l]);
+                        if(response.gender==radiocheck.value){
+                            radiocheck.checked=true;
+                        } 
+                    }
+
+                    var dropdown = $("[name='sft']");
+                    for(let i=0; i<dropdown.length; i++){
+                        let ddcheck = dropdown.get([i]);
+                        console.log(ddcheck);
+                        if(response.shift==ddcheck.value){
+                            ddcheck.selected=true;
+                        }
+                    }
+
+                    var cboxed = response.skills;
+                    console.log(cboxed)
+                    var cvalue=cboxed.toString();
+                    console.log(cvalue);
+                    var skillsary = cvalue.split(',');
+                    console.log(skillsary);
+                    var cboxval = $("[name='skills']");
+                    
+                    for(let n=0; n<cboxval.length; n++){
+                        var demo1 = cboxval.get([n]);
+                        for(let p=0; p<skillsary.length; p++){
+                            if(skillsary[p]==demo1.value){
+                                demo1.checked=true;
+                            }
+                        }
+                    }
+
+                    }
+                });
+           
+            // var data_file = "AJ18.json";
+            // var http_request = new XMLHttpRequest();
+           
+            // http_request.onreadystatechange = function() {
+			
+            //    if (http_request.readyState == 4  ) {
+            //     console.log("hello")
+            //       // Javascript function JSON.parse to parse JSON data
+            //       var jsonObj = JSON.parse(http_request.responseText);
+            //       console.log(jsonObj.name);
+
+            //       // jsonObj variable now contains the data structure and can
+            //       // be accessed as jsonObj.name and jsonObj.country.
+            //       $("#Name").val(jsonObj.name)
+            //       document.getElementById("Name").innerHTML = jsonObj.name;
+            //       document.getElementById("Age").innerHTML = jsonObj.country;
+            //    }
+            // }
+			
+            // http_request.open("GET", data_file, true);
+            // http_request.send();
+         
+        }
+
+    });
+</script>
+</body>
+</html>

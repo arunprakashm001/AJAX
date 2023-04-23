@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="funload()">Click to see table</button>
+    <table id="demo"></table>
+
+</head>
+<body>
+
+    <script>
+        function funload(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+                funcall(this);
+            }
+            xhttp.open("GET","AJO4.xml")
+            xhttp.send()
+        }
+
+        function funcall(req){
+            var xmlDoc = req.responseXML;
+            const x = xmlDoc.getElementByTagName("name");
+            let table = "<tr><td>"+Name+"</td><td>"+Age+"</td></tr>";
+            for(i=0; i<x.length; i++){
+                table +="<tr><td>" +x[i].childNodes[0].nodeValue +"</td><tr>";
+            }
+            document.getElementById("demo").innerHTML=table;
+        }
+    </script>
+    
+</body>
+</html>

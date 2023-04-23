@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ17</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>SPA</h2>
+        <!-- <img src="./pexels-luis-del-río-15286.jpg" alt="" width="300px" height="250px" id="img" onclick="$.fn.loadImg()" > -->
+        <img src="./pexels-luis-del-río-15286.jpg" alt="" width="300px" height="250px" id="01">
+        <img src="./pexels-eva-bronzini-5766466.jpg" alt="" width="300px" height="250px" id="02">
+        <img src="./pexels-ezra-comeau-2387418.jpg" alt="" width="300px" height="250px" id="03">
+        <img src="./pexels-francesco-ungaro-2325446.jpg" alt="" width="300px" height="250px" id="04">
+        <img src="./pexels-marina-leonova-9433045.jpg" alt="" width="300px" height="250px" id="05">
+    </div>
+    <script>
+          $(document).ready(function(){
+
+        $("#01").click(function(){
+                var xhr = new XMLHttpRequest();
+
+          xhr.responseType = "blob";
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var blob = xhr.response;
+              var objectURL = URL.createObjectURL(blob);
+              var img = document.getElementById("01");
+              img.src = objectURL;
+            }
+          };
+          xhr.open("GET", "./img01.jpg", true);
+          xhr.send();
+
+            });
+
+         $("#02").click(function(){
+                var xhr = new XMLHttpRequest();
+
+          xhr.responseType = "blob";
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var blob = xhr.response;
+              var objectURL = URL.createObjectURL(blob);
+              var img = document.getElementById("02");
+              img.src = objectURL;
+            }
+          };
+          xhr.open("GET", "./img02.webp", true);
+          xhr.send();
+
+            });
+
+        $("#03").click(function(){
+                var xhr = new XMLHttpRequest();
+
+          xhr.responseType = "blob";
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var blob = xhr.response;
+              var objectURL = URL.createObjectURL(blob);
+              var img = document.getElementById("03");
+              img.src = objectURL;
+            }
+          };
+          xhr.open("GET", "./img03.jpg", true);
+          xhr.send();
+
+            });
+
+        $("#04").click(function(){
+                var xhr = new XMLHttpRequest();
+
+          xhr.responseType = "blob";
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var blob = xhr.response;
+              var objectURL = URL.createObjectURL(blob);
+              var img = document.getElementById("04");
+              img.src = objectURL;
+            }
+          };
+          xhr.open("GET", "./img04.jpg", true);
+          xhr.send();
+
+            });
+
+        $("#05").click(function(){
+                var xhr = new XMLHttpRequest();
+
+          xhr.responseType = "blob";
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              var blob = xhr.response;
+              var objectURL = URL.createObjectURL(blob);
+              var img = document.getElementById("05");
+              img.src = objectURL;
+            }
+          };
+          xhr.open("GET", "./img05.jpg", true);
+          xhr.send();
+
+            });
+
+          });
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>The XMLHttpRequest Object</h2>
+
+    <div id="demo">
+      <p>Let AJAX change this text.</p>
+      <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+      function loadDoc() {
+        console.log("1");
+        const xhttp = new XMLHttpRequest();
+        console.log("2");
+        xhttp.onload = function () {
+          console.log("3");
+          document.getElementById("demo").innerHTML = this.responseText;
+          console.log("4");
+        };
+        console.log("5");
+        xhttp.open("GET", "AJ01.txt");
+        console.log("6");
+        xhttp.send();
+        console.log("7");
+      }
+    </script>
+
+  </body>
+</html>

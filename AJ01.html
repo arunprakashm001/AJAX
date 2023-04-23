@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   
+</head>
+<body>
+    <div id="demo" >
+        <h1>AJAX</h1>
+        <button id="btn" onclick="$.fn.change()">Click</button>
+
+        
+    </div>
+    
+
+    <script>
+        var url = "AJ01.txt";
+        // console.log("1")
+        // function change(){
+        //     console.log("2")
+        //     var test = new XMLHttpRequest();
+        //     console.log("3")
+        //     test.onreadystatechange = function(){
+        //         console.log("4")
+        //         if(this.readyState==4 && this.status==200){
+        //             console.log("5")
+        //            document.getElementById("demo").innerHTML=this.responseText; 
+        //            console.log("7")
+        //         }
+        //     }
+        //     console.log("8")
+        //     test.open("GET",url,true);
+        //     console.log("9")
+        //     test.send();
+        //     console.log("10")
+        // }
+
+        $.fn.change = function(){
+
+            var test = new XMLHttpRequest();
+            console.log("3")
+            test.onreadystatechange = function(){
+                console.log("4")
+                if(this.readyState==4 && this.status==200){
+                    $("#demo").html(test.responseText);
+                }
+            }
+            console.log("8")
+            test.open("GET",url,true);
+            console.log("9")
+            test.send();
+            console.log("10")
+
+        }
+        
+
+       
+        
+    </script>
+</body>
+</html>

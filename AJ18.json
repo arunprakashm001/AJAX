@@ -1,0 +1,11 @@
+{
+  "name": "hello", 
+  "dob":"21-11-1992",
+  "id":392902,
+  "email":"asdf@gmail.com",
+  "address":"12/B North street",
+  "phone":939824901,
+  "gender":"Female",
+  "shift":"Secondshift",
+  "skills":["HTML","JAVA","Php","Javascript"]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ15</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>MPA</h2>
+        <img src="./pexels-luis-del-río-15286.jpg" alt="" width="300px" height="250px" id="01">
+        <img src="./pexels-eva-bronzini-5766466.jpg" alt="" width="300px" height="250px" id="02">
+        <img src="./pexels-ezra-comeau-2387418.jpg" alt="" width="300px" height="250px" id="03" >
+        <img src="./pexels-francesco-ungaro-2325446.jpg" alt="" width="300px" height="250px" id="04" >
+        <img src="./pexels-marina-leonova-9433045.jpg" alt="" width="300px" height="250px" id="05" >
+    </div>
+    <script>
+
+        $(document).ready(function(){
+            $('#01').click(function(){
+                $('#01').attr("src", './img01.jpg');
+            })
+            $('#02').click(function(){
+                $('#02').attr("src", './img02.webp');
+            })
+            $('#03').click(function(){
+                $('#03').attr("src", './img03.jpg');
+            })
+            $('#04').click(function(){
+                $('#04').attr("src", './img04.jpg');
+            })
+            $('#05').click(function(){
+                $('#05').attr("src", './img05.jpg');
+            })
+
+            
+        })
+
+    </script>
+    
+</body>
+</html>

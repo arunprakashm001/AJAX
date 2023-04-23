@@ -1,0 +1,36 @@
+{
+   "data":[ {
+        "id":1,
+        "Name":"Nameone",
+        "Age":21,
+        "Email":"nameone@gmail.com",
+        "Address":"Name one street",
+        "Contact":9988992211
+    },
+    {
+        "id":2,
+        "Name":"Nametwo",
+        "Age":91,
+        "Email":"nametwo@gmail.com",
+        "Address":"Name two street",
+        "Contact":9900223811
+    },
+    {
+        "id":3,
+        "Name":"Namethree",
+        "Age":32,
+        "Email":"namethree@gmail.com",
+        "Address":"Name three street",
+        "Contact":9000223865
+    },
+    {
+        "id":4,
+        "Name":"Namefour",
+        "Age":91,
+        "Email":"namefour@gmail.com",
+        "Address":"Name four street",
+        "Contact":9962223831
+    }
+
+   ]
+}

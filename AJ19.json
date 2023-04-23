@@ -1,0 +1,264 @@
+[
+    {
+        "id": "1",
+        "name": "India",
+        "parent_id": "0"
+    },
+    {
+        "id": "2",
+        "name": "Andhra Pradesh",
+        "parent_id": "1"
+    },
+    {
+        "id": "3",
+        "name": "Tamil Nadu",
+        "parent_id": "1"
+    },
+    {
+        "id": "4",
+        "name": "Alluri Sitharama Raju",
+        "parent_id": "2"
+    },
+    {
+        "id": "5",
+        "name": "Anakapalli",
+        "parent_id": "2"
+    },
+    {
+        "id": "6",
+        "name": "Anantapuramu",
+        "parent_id": "2"
+    },
+    {
+        "id": "7",
+        "name": "Annamayya",
+        "parent_id": "2"
+    },
+    {
+        "id": "8",
+        "name": "Bapatla",
+        "parent_id": "2"
+    },
+    {
+        "id": "9",
+        "name": "Chittoor",
+        "parent_id": "2"
+    },
+    {
+        "id": "10",
+        "name": "Eluru",
+        "parent_id": "2"
+    },
+    {
+        "id": "12",
+        "name": "Guntur",
+        "parent_id": "2"
+    },
+    {
+        "id": "13",
+        "name": "Srikakulam",
+        "parent_id": "2"
+    },
+    {
+        "id": "14",
+        "name": "Parvathipuram Manyam",
+        "parent_id": "2"
+    },
+    {
+        "id": "15",
+        "name": "Vizianagaram",
+        "parent_id": "2"
+    },
+    {
+        "id": "16",
+        "name": "Visakhapatnam",
+        "parent_id": "2"
+    },
+    {
+        "id": "17",
+        "name": "Kakinada",
+        "parent_id": "2"
+    },
+    {
+        "id": "18",
+        "name": "East Godavari",
+        "parent_id": "2"
+    },
+    {
+        "id": "19",
+        "name": "Konaseema",
+        "parent_id": "2"
+    },
+    {
+        "id": "20",
+        "name": "West Godavari",
+        "parent_id": "2"
+    },
+    {
+        "id": "21",
+        "name": "Palnadu",
+        "parent_id": "2"
+    },
+    {
+        "id": "22",
+        "name": "Prakasam",
+        "parent_id": "2"
+    },
+    {
+        "id": "23",
+        "name": "Sri Potti Sriramulu Nellore",
+        "parent_id": "2"
+    },
+    {
+        "id": "24",
+        "name": "Ariyalur",
+        "parent_id": "3"
+    },
+    {
+        "id": "25",
+        "name": "Chengalpattu",
+        "parent_id": "3"
+    },
+    {
+        "id": "26",
+        "name": "Chennai",
+        "parent_id": "3"
+    },
+    {
+        "id": "27",
+        "name": "Coimbatore",
+        "parent_id": "3"
+    },
+    {
+        "id": "28",
+        "name": "Cuddalore",
+        "parent_id": "3"
+    },
+    {
+        "id": "29",
+        "name": "Dharmapuri",
+        "parent_id": "3"
+    },
+    {
+        "id": "30",
+        "name": "Dindigul",
+        "parent_id": "3"
+    },
+    {
+        "id": "31",
+        "name": "Erode",
+        "parent_id": "3"
+    },
+    {
+        "id": "32",
+        "name": "Kallakurichi",
+        "parent_id": "3"
+    },
+    {
+        "id": "33",
+        "name": "Kancheepuram",
+        "parent_id": "3"
+    },
+    {
+        "id": "34",
+        "name": "Karur",
+        "parent_id": "3"
+    },
+    {
+        "id": "35",
+        "name": "Krishnagiri",
+        "parent_id": "3"
+    },
+    {
+        "id": "36",
+        "name": "Madurai",
+        "parent_id": "3"
+    },
+    {
+        "id": "37",
+        "name": "Mayiladuthurai",
+        "parent_id": "3"
+    },
+    {
+        "id": "38",
+        "name": "Nagapattinam",
+        "parent_id": "3"
+    },
+    {
+        "id": "39",
+        "name": "Kanniyakumari",
+        "parent_id": "3"
+    },
+    {
+        "id": "40",
+        "name": "Namakkal",
+        "parent_id": "3"
+    },
+    {
+        "id": "41",
+        "name": "Perambalur",
+        "parent_id": "3"
+    },
+    {
+        "id": "42",
+        "name": "Pudukottai",
+        "parent_id": "3"
+    },
+    {
+        "id": "43",
+        "name": "Ramanathapuram",
+        "parent_id": "3"
+    },
+    {
+        "id": "44",
+        "name": "Salem",
+        "parent_id": "3"
+    },
+    {
+        "id": "45",
+        "name": "Sivagangai",
+        "parent_id": "3"
+    },
+    {
+        "id": "46",
+        "name": "Tenkasi",
+        "parent_id": "3"
+    },
+    {
+        "id": "47",
+        "name": "Thanjavur",
+        "parent_id": "3"
+    },
+    {
+        "id": "48",
+        "name": "Theni",
+        "parent_id": "3"
+    },
+    {
+        "id": "49",
+        "name": "Thoothukudi",
+        "parent_id": "3"
+    },
+    {
+        "id": "50",
+        "name": "Thirunelveli",
+        "parent_id": "3"
+    },
+    {
+        "id": "51",
+        "name": "Vellore",
+        "parent_id": "3"
+    },
+    {
+        "id": "52",
+        "name": "Viluppuram",
+        "parent_id": "3"
+    },
+    {
+        "id": "53",
+        "name": "Virudhunagar",
+        "parent_id": "3"
+    }
+
+
+]

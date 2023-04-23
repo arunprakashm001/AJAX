@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style id="styles"></style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>AJAX JS</h1>
+      <div class="container">
+        <form action="">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="">First Name</label>
+              <input type="text" id="fname" class="form-control" />
+            </div>
+            <div class="col-md-6">
+              <label for="">Last Name</label>
+              <input type="text" id="lname" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="">FULLNAME</label>
+              <input type="text" id="fullname" class="form-control" disabled />
+            </div>
+          </div>
+          <br />
+          <button class="btn btn-lg btn-success" id="btn" type="button">
+            CLICK
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+
+        // var xhr = new XMLHttpRequest();
+
+        // xhr.responseType = "text";
+
+        // xhr.onload = function () {
+        //   if (xhr.status === 200) {
+        //     var script = document.createElement("script");
+        //     script.textContent = xhr.responseText;
+        //     document.head.appendChild(script);
+        //   }
+        // };
+
+        // xhr.open("GET", "demo08.js", true);
+        // xhr.send();
+
+          $.ajax({
+            url: "demo08.js",
+            dataType: "text",
+            success: function (response) {
+                var script = document.createElement("script");
+                script.textContent = response ;
+                document.head.appendChild(script);
+            },
+          });
+
+      });
+    </script>
+  </body>
+</html>
